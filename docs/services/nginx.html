@@ -141,13 +141,15 @@
   
     <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html#introduction">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation/index.html#installation">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html#osgs">Services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../utilities/index.html">Utilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workflows/index.html">Workflows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blueprints/index.html#blueprints">Blueprints</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../roadmap.html#osgs-roadmap">OSGS Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blueprints/index.html">Blueprints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ.html#troubleshooting-faq">Troubleshooting FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap.html">OSGS Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Credits.html#credits">Credits</a></li>
 </ul>
 
   
@@ -161,13 +163,15 @@
   
     <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html#introduction">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation/index.html#installation">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html#osgs">Services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../utilities/index.html">Utilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workflows/index.html">Workflows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blueprints/index.html#blueprints">Blueprints</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../roadmap.html#osgs-roadmap">OSGS Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blueprints/index.html">Blueprints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ.html#troubleshooting-faq">Troubleshooting FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap.html">OSGS Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Credits.html#credits">Credits</a></li>
 </ul>
 
   
@@ -176,30 +180,51 @@
             
   <div class="tex2jax_ignore mathjax_ignore section" id="nginx-pr-pr">
 <h1>Nginx - PR <img alt="PR" src="https://img.shields.io/badge/pr-green?style=for-the-badge" /><a class="headerlink" href="#nginx-pr-pr" title="Permalink to this headline">¶</a></h1>
-<p>Nginx is a lightweight web server acting as a proxy in front of QGIS server, and as a server for the static HTML content.</p>
+<p>Nginx is a lightweight web server acting as a proxy in front of QGIS Server and as a server for the static HTML content.</p>
 <p><strong>Service name:</strong> nginx</p>
-<p><strong>Project Website:</strong> <a class="reference external" href="https://www.nginx.com/">NGINX</a></p>
-<p><strong>Project Source Repository:</strong> <a class="reference external" href="https://github.com/nginx/nginx">nginx / nginx</a></p>
+<p><strong>Project Website:</strong> <a class="reference external" href="https://www.nginx.com/">nginx.com</a></p>
+<p><strong>Project Source Repository:</strong> <a class="reference external" href="https://github.com/nginx/nginx">nginx/nginx</a></p>
 <p><strong>Project Technical Documentation:</strong> <a class="reference external" href="http://nginx.org/en/docs/">nginx documentation</a></p>
 <p><strong>Docker Repository:</strong> <a class="reference external" href="https://hub.docker.com/_/nginx">nginx</a></p>
-<p><strong>Docker Source Repository:</strong> <a class="reference external" href="https://github.com/nginxinc/docker-nginx">nginxinc / docker-nginx</a></p>
-<div class="section" id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-</div>
+<p><strong>Docker Source Repository:</strong> <a class="reference external" href="https://github.com/nginxinc/docker-nginx">nginxinc/docker-nginx</a></p>
 <div class="section" id="deployment">
 <h2>Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline">¶</a></h2>
+<p>The Nginx service is configured and deployed as part of the initial stack. The initial stack consists of the Nginx, Hugo Watcher and Watchtower services. To deploy the initial stack, run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">configure-ssl-self-signed</span></code> or <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">configure-letsencrypt-ssl</span></code>.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">configure-ssl-self-signed</span></code> if you are going to use a self-signed certificate on a localhost for testing. Use <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">configure-letsencrypt-ssl</span></code> if you are going to use a Let’s Encrypt signed certificate on a name host for production. Running <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">configure-ssl-self-signed</span></code> will deploy the Nginx, Hugo Watcher and Watchtower services, but after running <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">configure-letsencrypt-ssl</span></code> you will need to run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">deploy-hugo</span></code> to deploy the Nginx, Hugo Watcher and Watchtower services.</p>
 </div>
-<div class="section" id="enabling">
-<h2>Enabling<a class="headerlink" href="#enabling" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="starting">
+<h2>Starting<a class="headerlink" href="#starting" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">start</span><span class="o">-</span><span class="n">nginx</span>
+</pre></div>
 </div>
-<div class="section" id="disabling">
-<h2>Disabling<a class="headerlink" href="#disabling" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="stopping">
+<h2>Stopping<a class="headerlink" href="#stopping" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">stop</span><span class="o">-</span><span class="n">nginx</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="restarting">
+<h2>Restarting<a class="headerlink" href="#restarting" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">restart</span><span class="o">-</span><span class="n">nginx</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="logs">
+<h2>Logs<a class="headerlink" href="#logs" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">nginx</span><span class="o">-</span><span class="n">logs</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="shell">
+<h2>Shell<a class="headerlink" href="#shell" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">nginx</span><span class="o">-</span><span class="n">shell</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="accessing-the-running-services">
 <h2>Accessing the running services<a class="headerlink" href="#accessing-the-running-services" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="additional-notes">
-<h2>Additional Notes<a class="headerlink" href="#additional-notes" title="Permalink to this headline">¶</a></h2>
+<p>After deploying the initial stack, the static hugo website is available on <code class="docutils literal notranslate"><span class="pre">https://&lt;server</span> <span class="pre">name&gt;.com/</span></code>, where the <code class="docutils literal notranslate"><span class="pre">&lt;server</span> <span class="pre">name&gt;</span></code> is the hostname of the server where you have set up OSGS.</p>
 </div>
 </div>
 
@@ -213,7 +238,7 @@
 
     <div class="col-md-12">
         <span></span><span class="pull-right">&copy; Copyright 2021, Tim Sutton.
-        Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0 and the
+        Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2 and the
         <a href="https://pypi.org/project/sphinx-sizzle-theme/"
 
            title="0.0.9/821a5457 [2020-04-16T19:31:16]"

@@ -141,13 +141,15 @@
   
     <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html#introduction">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation/index.html#installation">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html#osgs">Services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../utilities/index.html">Utilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workflows/index.html">Workflows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blueprints/index.html#blueprints">Blueprints</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../roadmap.html#osgs-roadmap">OSGS Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blueprints/index.html">Blueprints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ.html#troubleshooting-faq">Troubleshooting FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap.html">OSGS Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Credits.html#credits">Credits</a></li>
 </ul>
 
   
@@ -161,13 +163,15 @@
   
     <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html#introduction">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation/index.html#installation">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html#osgs">Services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../utilities/index.html">Utilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workflows/index.html">Workflows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blueprints/index.html#blueprints">Blueprints</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../roadmap.html#osgs-roadmap">OSGS Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blueprints/index.html">Blueprints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ.html#troubleshooting-faq">Troubleshooting FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap.html">OSGS Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Credits.html#credits">Credits</a></li>
 </ul>
 
   
@@ -177,117 +181,16 @@
   <div class="tex2jax_ignore mathjax_ignore section" id="postgres-and-postgis-pr-pr">
 <h1>Postgres and PostGIS - PR <img alt="PR" src="https://img.shields.io/badge/pr-green?style=for-the-badge" /><a class="headerlink" href="#postgres-and-postgis-pr-pr" title="Permalink to this headline">¶</a></h1>
 <p>PostgreSQL is a powerful, open source object-relational database management system (ORDBMS) that uses and extends the SQL language combined with many features that safely store and scale the most complicated data workloads.<a class="reference external" href="#1"><sup>[1]</sup></a><a class="reference external" href="#2"><sup>[2]</sup></a></p>
-<p>PostGIS is a spatial extension to for PostgreSQL object-relational database. This allows for GIS (Geographic Information Systems) objects to be stored in the database.<a class="reference external" href="#3"><sup>[3]</sup></a></p>
-<p>The heart of any stack like the OpenSource GIS Stack would be PostGIS and PostgreSQL. This is because many of the other tools provided in the OSGS stack, for example Goeserver, QGIS Server and Mergin, all rely or can make use of PostGIS as a data storage platform and in some cases as a data anlysis platform. The OSGS stack provides PostgreSQL version 13 along with PostGIS which are provided by the the Kartoza PostGIS Docker container. There are a few considerations that were made when deploying this container. One, which is actually a general design consideration of the OSGS stack, is to try and make everything as secure as possible out of the box, rather than leaving security as an afterthought. To fulfill this consideration, what the OSGS stack does, is it spins up a PostgreSQL instance with PostGIS deployed in it and creates a separate user account for connecting to this instance. It also enables SSL encription by default, as required to the PostgreSQL database. This is so that if you choose to open the port as a public service, firstly, we are not using some well documented default password and username combination and secondly, all the traffic between your client application and the server is encrypted.</p>
+<p>PostGIS is a spatial extension for the PostgreSQL object-relational database. This allows for GIS (Geographic Information Systems) objects to be stored in the database.<a class="reference external" href="#3"><sup>[3]</sup></a></p>
+<p>The heart of any stack like the Open Source GIS Stack (OSGS) would be PostGIS and PostgreSQL. This is because many of the other tools provided in the OSGS stack, for example, GeoServer, QGIS Server and Mergin, all rely on or can make use of PostGIS as a data storage platform and in some cases as a data analysis platform. OSGS provides PostgreSQL version 13 along with PostGIS, which are provided by the Kartoza PostGIS Docker container. There are a few considerations that were made when deploying this container. One, which is actually a general design consideration of OSGS, is to try and make everything as secure as possible out of the box, rather than leaving security as an afterthought. To fulfill this consideration, what OSGS does is, it spins up a PostgreSQL instance with PostGIS deployed in it and creates a separate user account for connecting to this instance. It also enables SSL encryption by default, as required to the PostgreSQL database. This is so that if you choose to open the port as a public service, firstly, we are not using some well documented default password and username combination and secondly, all the traffic between your client application and the server is encrypted.</p>
 <p><strong>Service name:</strong> db</p>
-<p><strong>Project Website:</strong> <a class="reference external" href="https://postgresql.org">PostgreSQL</a> and <a class="reference external" href="https://postgis.net/">PostGIS</a></p>
-<p><strong>Project Source Repository:</strong> <a class="reference external" href="https://github.com/postgres/postgres">postgres / postgres</a> and <a class="reference external" href="https://git.osgeo.org/gitea/postgis/postgis">postgis / postgis</a></p>
+<p><strong>Project Website:</strong> <a class="reference external" href="https://postgresql.org">postgresql.org</a> and <a class="reference external" href="https://postgis.net/">postgis.net</a></p>
+<p><strong>Project Source Repository:</strong> <a class="reference external" href="https://github.com/postgres/postgres">postgres/postgres</a> and <a class="reference external" href="https://git.osgeo.org/gitea/postgis/postgis">postgis/postgis</a></p>
 <p><strong>Project Technical Documentation:</strong> <a class="reference external" href="https://www.postgresql.org/docs/current/">PostgreSQL Documentation</a> and <a class="reference external" href="https://postgis.net/docs/">PostGIS Documentation</a></p>
 <p><strong>Docker Repository:</strong> <a class="reference external" href="https://hub.docker.com/r/kartoza/postgis">kartoza/postgis</a></p>
-<p><strong>Docker Source Repository:</strong> <a class="reference external" href="https://github.com/kartoza/docker-postgis">kartoza / docker-postgis</a></p>
-<div class="section" id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<p>The project includes detailed documentation so this section only contains details relevant to the Open Source GIS Stack configuration.</p>
-<div class="section" id="database-password">
-<h3>Database password:<a class="headerlink" href="#database-password" title="Permalink to this headline">¶</a></h3>
-<p>Generate a strong password:</p>
-<p><code class="docutils literal notranslate"><span class="pre">pwgen</span> <span class="pre">20</span> <span class="pre">1</span></code></p>
-<p>Replace the default docker password for the postgres user with the strong password:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>rpl “POSTGRES_PASSWORD=docker” “POSTGRES_PASSWORD=&lt;strong password&gt;” .env
-</pre></div>
-</div>
-</div>
-<div class="section" id="service-file-configuration">
-<h3>Service file configuration:<a class="headerlink" href="#service-file-configuration" title="Permalink to this headline">¶</a></h3>
-<p>Service files entries serve two scenarios:</p>
-<ol class="simple">
-<li>They are needed for opening QGIS projects stored in postgres with PG connection URI because at the project URI you cannot use QGIS authdb. If you prefer to store your projects on the file system, you should rather remove these lines (whole nginx section) since the authentication from pg_conf/pg_service.conf can be done more securely by QGIS authdb.</li>
-<li>Used by your QGIS Server projects to connect to the database once the project is opened from either the file system of the database. You can either specify your password and username in service file or for more advanced configuration you can store user / password credentials in a QGIS authdb file. Refer to the authdb section and in qgis_conf/qgis-auth.db and the readme in
-that folder.</li>
-</ol>
-<p>On your local machine you should create your own service file with the same service name but connection details that make sense when using the database from your local machine. When you upload your projects into the stack they will connect using the settings from the server hosted service file below assuming you used the same service name.</p>
-<p>To carry out the service file configuration, copy, rename then edit the pg_service file in pg_config as per the example below (note that we also substitute in the database password created in the steps above).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cp</span> <span class="n">pg_conf</span><span class="o">/</span><span class="n">pg_service</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">example</span> \ <span class="n">pg_conf</span><span class="o">/</span><span class="n">pg_service</span><span class="o">.</span><span class="n">confpassword</span><span class="o">=</span><span class="n">docker</span>
-<span class="n">rpl</span> <span class="n">password</span><span class="o">=&lt;</span><span class="n">your</span> <span class="n">password</span><span class="o">&gt;</span> <span class="n">pg_conf</span><span class="o">/</span><span class="n">pg_service</span><span class="o">.</span><span class="n">conf</span>
-</pre></div>
-</div>
-</div>
+<p><strong>Docker Source Repository:</strong> <a class="reference external" href="https://github.com/kartoza/docker-postgis">kartoza/docker-postgis</a></p>
 <div class="section" id="deployment">
-<h3>Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="o">--</span><span class="n">profile</span><span class="o">=</span><span class="n">postgres</span> <span class="n">up</span> <span class="o">-</span><span class="n">d</span>
-</pre></div>
-</div>
-<p>Note that the default configuration opens the postgresql service to all hosts. This is a potential security hole. If you open the port on the firewall e.g.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ufw</span> <span class="n">allow</span> <span class="mi">5432</span> <span class="n">tcp</span>
-</pre></div>
-</div>
-<p>Then be sure to connect from pg clients like psql or QGIS with SSL enabled so that passwords and data are not transmitted in clear text.</p>
-</div>
-<div class="section" id="validation">
-<h3>Validation<a class="headerlink" href="#validation" title="Permalink to this headline">¶</a></h3>
-<p>Create a local pg_service.conf file like the example below and save it in <code class="docutils literal notranslate"><span class="pre">~/.pg_service.conf</span></code> or similar as appropriate to your operating system (see https://www.postgresql.org/docs/12/libpq-pgservice.html for details on configuration options).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">os</span><span class="o">-</span><span class="n">gis</span><span class="o">-</span><span class="n">stack</span><span class="p">]</span>
-<span class="n">dbname</span><span class="o">=</span><span class="n">gis</span>
-<span class="n">port</span><span class="o">=</span><span class="mi">5432</span>
-<span class="n">host</span><span class="o">=&lt;</span><span class="n">hostname</span> <span class="n">of</span> <span class="n">your</span> <span class="n">server</span><span class="o">&gt;</span>
-<span class="n">user</span><span class="o">=&lt;</span><span class="n">your</span> <span class="n">password</span><span class="o">&gt;</span>
-<span class="n">password</span><span class="o">=</span><span class="n">docker</span>
-</pre></div>
-</div>
-<p>Now pass the server parameter to psql and list the databases as per the example below:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[timlinux@fedora ~]$ psql service=os-gis-stack -l
-List of databases
-</pre></div>
-</div>
-<table class="colwidths-auto">
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Name</th>
-<th class="head">Owner</th>
-<th class="head">Encoding</th>
-<th class="head">Collate</th>
-<th class="head">Ctype</th>
-<th class="head">Access privileges</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>gis</td>
-<td>docker</td>
-<td>UTF8</td>
-<td>C.UTF-8</td>
-<td>C.UTF-8</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td>postgres</td>
-<td>postgres</td>
-<td>UTF8</td>
-<td>C.UTF-8</td>
-<td>C.UTF-8</td>
-<td></td>
-</tr>
-<tr class="row-even"><td>template0</td>
-<td>postgres</td>
-<td>UTF8</td>
-<td>C.UTF-8</td>
-<td>C.UTF-8</td>
-<td>=c/postgres</td>
-</tr>
-<tr class="row-odd"><td>template1</td>
-<td>postgres</td>
-<td>UTF8</td>
-<td>C.UTF-8</td>
-<td>C.UTF-8</td>
-<td>=c/postgres</td>
-</tr>
-</tbody>
-</table>
-<p><code class="docutils literal notranslate"><span class="pre">(4</span> <span class="pre">rows)</span></code></p>
-<p>Test from QGIS is similar:</p>
-<p>XXXXXXXXXXXXXX</p>
-<p>Note that there was no need to supply any credentials other than the service file name.</p>
-</div>
-</div>
-<div class="section" id="id1">
-<h2>Deployment<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">deploy</span><span class="o">-</span><span class="n">postgres</span>
 </pre></div>
 </div>
@@ -298,8 +201,8 @@ List of databases
 </pre></div>
 </div>
 </div>
-<div class="section" id="id2">
-<h2>Configuration<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">configure</span><span class="o">-</span><span class="n">postgres</span>
 </pre></div>
 </div>
@@ -322,56 +225,79 @@ List of databases
 </pre></div>
 </div>
 </div>
-<div class="section" id="polling-the-service-logs">
-<h2>Polling the service logs<a class="headerlink" href="#polling-the-service-logs" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="logs">
+<h2>Logs<a class="headerlink" href="#logs" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">db</span><span class="o">-</span><span class="n">logs</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="creating-the-service-shell">
-<h2>Creating the service shell<a class="headerlink" href="#creating-the-service-shell" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="shell">
+<h2>Shell<a class="headerlink" href="#shell" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">db</span><span class="o">-</span><span class="n">shell</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="reinitializing-the-service">
-<h2>Reinitializing the service<a class="headerlink" href="#reinitializing-the-service" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">reinitialise</span><span class="o">-</span><span class="n">postgres</span>
+<div class="section" id="creating-a-psql-session">
+<h2>Creating a psql session<a class="headerlink" href="#creating-a-psql-session" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">db</span><span class="o">-</span><span class="n">psql</span><span class="o">-</span><span class="n">shell</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="backing-up-data">
-<h2>Backing up data<a class="headerlink" href="#backing-up-data" title="Permalink to this headline">¶</a></h2>
-<p>To back up a QGIS project stored in db, run:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">db</span><span class="o">-</span><span class="n">qgis</span><span class="o">-</span><span class="n">project</span><span class="o">-</span><span class="n">backup</span>
+<div class="section" id="restarting">
+<h2>Restarting<a class="headerlink" href="#restarting" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">restart</span><span class="o">-</span><span class="n">postgres</span>
 </pre></div>
 </div>
-<p>To back up the entire GIS postgres db, run:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">db</span><span class="o">-</span><span class="n">backup</span>
+</div>
+<div class="section" id="backing-up">
+<h2>Backing up<a class="headerlink" href="#backing-up" title="Permalink to this headline">¶</a></h2>
+<p>To back up QGIS styles stored in the <code class="docutils literal notranslate"><span class="pre">gis</span></code> database, run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">backup</span><span class="o">-</span><span class="n">db</span><span class="o">-</span><span class="n">qgis</span><span class="o">-</span><span class="n">styles</span>
 </pre></div>
 </div>
-<p>To back up all postgres databases, run:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">db</span><span class="o">-</span><span class="n">backupall</span>
+<p>To back up QGIS projects stored in the <code class="docutils literal notranslate"><span class="pre">gis</span></code> database, run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">backup</span><span class="o">-</span><span class="n">db</span><span class="o">-</span><span class="n">qgis</span><span class="o">-</span><span class="n">projects</span>
 </pre></div>
 </div>
-<p>To back up the mergin base schema from postgres db, run:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">db</span><span class="o">-</span><span class="n">backup</span><span class="o">-</span><span class="n">mergin</span><span class="o">-</span><span class="n">base</span><span class="o">-</span><span class="n">schema</span>
+<p>To back up the entire <code class="docutils literal notranslate"><span class="pre">gis</span></code> database, run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">backup</span><span class="o">-</span><span class="n">db</span><span class="o">-</span><span class="n">gis</span>
+</pre></div>
+</div>
+<p>To back up the mergin base schema from the <code class="docutils literal notranslate"><span class="pre">gis</span></code> database, run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">backup</span><span class="o">-</span><span class="n">db</span><span class="o">-</span><span class="n">mergin</span><span class="o">-</span><span class="n">base</span><span class="o">-</span><span class="n">schema</span>
+</pre></div>
+</div>
+<p>To back up all the service’s databases, run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">backup</span><span class="o">-</span><span class="nb">all</span><span class="o">-</span><span class="n">databases</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="restoring-data">
 <h2>Restoring data<a class="headerlink" href="#restoring-data" title="Permalink to this headline">¶</a></h2>
-<p>To restore a previously backed up QGIS project to db, run:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">db</span><span class="o">-</span><span class="n">qgis</span><span class="o">-</span><span class="n">project</span><span class="o">-</span><span class="n">restore</span>
+<p>To restore the last back up of QGIS styles to the <code class="docutils literal notranslate"><span class="pre">gis</span></code> database, run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">restore</span><span class="o">-</span><span class="n">db</span><span class="o">-</span><span class="n">qgis</span><span class="o">-</span><span class="n">styles</span>
+</pre></div>
+</div>
+<p>To restore the last back up of QGIS projects to the <code class="docutils literal notranslate"><span class="pre">gis</span></code> database run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">restore</span><span class="o">-</span><span class="n">db</span><span class="o">-</span><span class="n">qgis</span><span class="o">-</span><span class="n">projects</span>
+</pre></div>
+</div>
+<p>To restore the last back up of the <code class="docutils literal notranslate"><span class="pre">gis</span></code> database, run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">restore</span><span class="o">-</span><span class="n">db</span><span class="o">-</span><span class="n">gis</span>
+</pre></div>
+</div>
+<p>To restore the last back up of the mergin base schema to the <code class="docutils literal notranslate"><span class="pre">gis</span></code> database, run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">restore</span><span class="o">-</span><span class="n">db</span><span class="o">-</span><span class="n">mergin</span><span class="o">-</span><span class="n">base</span><span class="o">-</span><span class="n">schema</span>
+</pre></div>
+</div>
+<p>To restore the last back up of all the service’s databases, run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">restore</span><span class="o">-</span><span class="nb">all</span><span class="o">-</span><span class="n">databases</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="accessing-the-running-services">
 <h2>Accessing the running services<a class="headerlink" href="#accessing-the-running-services" title="Permalink to this headline">¶</a></h2>
-<p>The Postgres service can be accessed by creating a connection using the Postgres user and password provided in the .env file.</p>
-</div>
-<div class="section" id="additional-notes">
-<h2>Additional Notes<a class="headerlink" href="#additional-notes" title="Permalink to this headline">¶</a></h2>
+<p>The Postgres service can be accessed by creating a connection using the user <code class="docutils literal notranslate"><span class="pre">&lt;POSTGRES_USER&gt;</span></code> and password <code class="docutils literal notranslate"><span class="pre">&lt;POSTGRES_PASSWORD&gt;</span></code> provided in the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file. The <a class="reference external" href="https://kartoza.github.io/osgs/workflows/accessing-postgis-from-qgis-using-pg_service-file.html">Accessing PostGIS from QGIS using a pg_service file workflow</a> and the <a class="reference external" href="https://kartoza.github.io/osgs/workflows/authentication-using-pg_service-and-qgisauthdb.html">Authentication of Postgres using a pg_service file and a qgis-auth.db file workflow</a> demonstrate different methods of creating a PostGIS connection in QGIS.</p>
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
@@ -391,7 +317,7 @@ List of databases
 
     <div class="col-md-12">
         <span></span><span class="pull-right">&copy; Copyright 2021, Tim Sutton.
-        Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0 and the
+        Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2 and the
         <a href="https://pypi.org/project/sphinx-sizzle-theme/"
 
            title="0.0.9/821a5457 [2020-04-16T19:31:16]"

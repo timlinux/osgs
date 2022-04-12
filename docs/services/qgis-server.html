@@ -41,7 +41,7 @@
       <script src="../../app-data.js"></script>
 <link rel="index" title="Index" href="../genindex.html" />
 <link rel="search" title="Search" href="../search.html" />
-<link rel="next" title="GeoServer - PR" href="geoserver.html" />
+<link rel="next" title="QGIS Desktop - WIP" href="qgis-desktop.html" />
 <link rel="prev" title="Postgres and PostGIS - PR" href="postgres.html" />
 
 </head>
@@ -88,7 +88,7 @@
       </div>
     
       <div class="pull-right">
-        <a class="btn btn-default next" href="geoserver.html" title="Next chapter (GeoServer - PR)"><span class="btn-text">GeoServer - PR</span>&nbsp;<i class="fa fa-chevron-right ml-1em" aria-hidden="true"></i></a>
+        <a class="btn btn-default next" href="qgis-desktop.html" title="Next chapter (QGIS Desktop - WIP)"><span class="btn-text">QGIS Desktop - WIP</span>&nbsp;<i class="fa fa-chevron-right ml-1em" aria-hidden="true"></i></a>
       </div>
     </div>
   
@@ -105,7 +105,7 @@
 
 
 
-        <a href="geoserver.html"><i class="fa fa-chevron-right"></i></a>
+        <a href="qgis-desktop.html"><i class="fa fa-chevron-right"></i></a>
 
       </div>
     </div>
@@ -141,13 +141,15 @@
   
     <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html#introduction">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation/index.html#installation">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html#osgs">Services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../utilities/index.html">Utilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workflows/index.html">Workflows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blueprints/index.html#blueprints">Blueprints</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../roadmap.html#osgs-roadmap">OSGS Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blueprints/index.html">Blueprints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ.html#troubleshooting-faq">Troubleshooting FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap.html">OSGS Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Credits.html#credits">Credits</a></li>
 </ul>
 
   
@@ -161,13 +163,15 @@
   
     <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html#introduction">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation/index.html#installation">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html#osgs">Services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../utilities/index.html">Utilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workflows/index.html">Workflows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blueprints/index.html#blueprints">Blueprints</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../roadmap.html#osgs-roadmap">OSGS Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blueprints/index.html">Blueprints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ.html#troubleshooting-faq">Troubleshooting FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap.html">OSGS Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Credits.html#credits">Credits</a></li>
 </ul>
 
   
@@ -176,53 +180,94 @@
             
   <div class="tex2jax_ignore mathjax_ignore section" id="qgis-server-pr-pr">
 <h1>QGIS Server - PR <img alt="PR" src="https://img.shields.io/badge/pr-green?style=for-the-badge" /><a class="headerlink" href="#qgis-server-pr-pr" title="Permalink to this headline">¶</a></h1>
-<p>With the QGIS Server service you can publish one or more QGIS projects including: 1. Projects stored in-database in PostgreSQL 2. Projects stored in the file system</p>
-<p>For the QGIS Server, we have chosen the OpenQuake build of QGIS Server because it has a few interesting characteristics. One, is that you can deploy QGIS server-side extensions easily with it and two, is that it supports things like the QGIS Authentication System. The QGIS Authentication System is an authentication database that provides more advanced security options, provides pg_service support, and provides some special features for URL rerouting so that your project paths are hidden away from the user (which is both a security and a convenience concern).</p>
-<p>The OpenQuake QGIS Server is used for the QGIS Server instance. The OSGS also provides a couple of sample plugins like a demonstrater plugin and a plugin for handling atlas reports. The demonstrater plugin is a modified version of the GetFeatureInfo handler and will return some html back and in a nicely formatted table. The plugin for handling atlas reports, written by Lizmap extends the QGIS getPrint support to allow you to request a specific page from an atlas print. This is pretty handy if you, for example, click on a feature and you want to get then from an atlas report the one page for that feature in the atlas.</p>
+<p>With the QGIS Server service, you can publish one or more QGIS projects including:</p>
+<ol class="simple">
+<li>Projects stored in a PostgreSQL database.</li>
+<li>Projects stored in the file system.</li>
+</ol>
+<p>For the QGIS Server, we have chosen the OpenQuake build of QGIS Server because it has a few interesting characteristics. One, is that you can deploy QGIS server-side extensions easily with it and two, it supports things like the QGIS Authentication System. The QGIS Authentication System is an authentication database that provides more advanced security options, provides pg_service support, and provides some special features for URL rerouting so that your project paths are hidden away from the user (which is both a security and a convenience concern).</p>
+<p>OSGS also provides a couple of sample plugins like a demonstrater plugin and a plugin for handling atlas reports. The demonstrater plugin is a modified version of the GetFeatureInfo handler and will return some HTML back and in a nicely formatted table. The plugin for handling atlas reports, written by Lizmap extends the QGIS getPrint support to allow you to request a specific page from an atlas print. This is pretty handy if you, for example, click on a feature and you want to get from an atlas report the one page for that feature in the atlas.</p>
 <p>Another feature that Docker provides for applications such as QGIS Server is the ability to horizontally scale them. Our platform has some key configuration examples showing you how you can, for example, scale up the QGIS Server instance to have ten concurrently running instances. This is useful for handling increased or high load on the server. Scaling will create a round robin request handler, so that as the requests come in, it will pass each successive request over to the next running instance, and those requests will be handled by that instance, passed back and then that instance will stand by and wait for the next request to come in.</p>
-<p>The QGIS Server works in orchestration with many of the other containers, including the PostGIS container. It also works pretty well in conjunction with the SCP (secure copy) container which allows the users of the OSGS architecture to easily move data from their local machine onto the server, either manually by copying and pasting files using an application such as Onescp or using built into Linux file browsers. For example, if you are one the GNOME desktop it has built into SFTP support.</p>
-<p><strong>Project Website:</strong> <a class="reference external" href="https://qgis.org">QGIS.org</a></p>
-<p><strong>Project Source Repository:</strong> <a class="reference external" href="https://github.com/qgis/qgis">QGIS on GitHub</a></p>
-<p><strong>Project Project Technical Documentation:</strong> <a class="reference external" href="https://docs.qgis.org/3.16/en/docs/server_manual/index.html">QGIS on GitHub</a></p>
-<p><strong>Docker Repository:</strong> <a class="reference external" href="https://hub.docker.com/r/openquake/qgis-server">openquake/qgis-server:stable</a></p>
-<p><strong>Docker Source Repository:</strong> <a class="reference external" href="https://github.com/gem/oq-qgis-server">gem / oq-qgis-server</a></p>
-<div class="section" id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-</div>
+<p>The QGIS Server works in orchestration with many of the other containers, including the PostGIS container. It also works pretty well in conjunction with the File Browser container which allows the users of the OSGS architecture to easily move data from their local machine onto the server, via the upload feature.</p>
+<p><strong>Service name:</strong> qgis-server</p>
+<p><strong>Project Website:</strong> <a class="reference external" href="https://qgis.org/">qgis.org</a></p>
+<p><strong>Project Source Repository:</strong> <a class="reference external" href="https://github.com/qgis/QGIS">qgis/QGIS</a></p>
+<p><strong>Project Project Technical Documentation:</strong> <a class="reference external" href="https://docs.qgis.org/3.22/en/docs/server_manual/index.html">QGIS Server Guide/Manual</a></p>
+<p><strong>Docker Repository:</strong> <a class="reference external" href="https://hub.docker.com/r/openquake/qgis-server">openquake/qgis-server</a></p>
+<p><strong>Docker Source Repository:</strong> <a class="reference external" href="https://github.com/gem/oq-qgis-server/">gem/oq-qgis-server</a></p>
 <div class="section" id="deployment">
 <h2>Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">deploy</span><span class="o">-</span><span class="n">qgis</span><span class="o">-</span><span class="n">server</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="enabling">
 <h2>Enabling<a class="headerlink" href="#enabling" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">enable</span><span class="o">-</span><span class="n">qgis</span><span class="o">-</span><span class="n">server</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="starting">
+<h2>Starting<a class="headerlink" href="#starting" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">start</span><span class="o">-</span><span class="n">qgis</span><span class="o">-</span><span class="n">server</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="stopping">
+<h2>Stopping<a class="headerlink" href="#stopping" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">stop</span><span class="o">-</span><span class="n">qgis</span><span class="o">-</span><span class="n">server</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="disabling">
 <h2>Disabling<a class="headerlink" href="#disabling" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">disable</span><span class="o">-</span><span class="n">qgis</span><span class="o">-</span><span class="n">server</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="restarting">
+<h2>Restarting<a class="headerlink" href="#restarting" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">restart</span><span class="o">-</span><span class="n">qgis</span><span class="o">-</span><span class="n">server</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="logs">
+<h2>Logs<a class="headerlink" href="#logs" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">qgis</span><span class="o">-</span><span class="n">server</span><span class="o">-</span><span class="n">logs</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="shell">
+<h2>Shell<a class="headerlink" href="#shell" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">qgis</span><span class="o">-</span><span class="n">server</span><span class="o">-</span><span class="n">shell</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="accessing-the-running-services">
 <h2>Accessing the running services<a class="headerlink" href="#accessing-the-running-services" title="Permalink to this headline">¶</a></h2>
-<p>Every project you publish will be available at <code class="docutils literal notranslate"><span class="pre">/ogc/project_name</span></code> which makes it very simple to discover where the projects are deployed on the server.</p>
+<p>QGIS projects published by uploading the project to the <code class="docutils literal notranslate"><span class="pre">qgis_projects</span></code> folder in File Browser are available at <code class="docutils literal notranslate"><span class="pre">/ogc/project_name</span></code> which makes it very simple to discover where the projects are deployed on the server. The <a class="reference external" href="https://kartoza.github.io/osgs/workflows/uploading-qgis-project.html">Uploading a QGIS project workflow</a> provides instructions on how to publish a QGIS project using this method.</p>
+<p>QGIS projects published through the Postgres connection service file for authentication or using the Postgres connection service file and the QGIS authentication database for authentication  are available at <code class="docutils literal notranslate"><span class="pre">/ogc-pg/project_URI</span></code>. The <a class="reference external" href="https://kartoza.github.io/osgs/workflows/publishing-qgis-project.html">Publishing a QGIS project in a Postgres database workflow</a> provides instructions on how to publish a QGIS project using this method.</p>
 </div>
 <div class="section" id="additional-notes">
 <h2>Additional Notes<a class="headerlink" href="#additional-notes" title="Permalink to this headline">¶</a></h2>
-</div>
 <div class="section" id="further-reading">
-<h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
-<p>You should read the <a class="reference external" href="https://docs.qgis.org/3.16/en/docs/server_manual/getting_started.html">QGIS Server documentation</a> on QGIS.org. It is well written and covers a lot of background explanation which is not provided here. Also you should familiarise yourself with the <a class="reference external" href="https://docs.qgis.org/3.16/en/docs/server_manual/config.html#environment-variables">Environment Variables</a>.</p>
+<h3>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h3>
+<p>You should read the <a class="reference external" href="https://docs.qgis.org/3.22/en/docs/server_manual/getting_started.html">QGIS Server documentation</a>. It is well written and covers a lot of background explanation which is not provided here. You should also familiarise yourself with the <a class="reference external" href="https://docs.qgis.org/3.22/en/docs/server_manual/config.html#environment-variables">Environment Variables</a>.</p>
 <p>Alesandro Passoti has made a number of great resources available for QGIS Server. See his <a class="reference external" href="http://www.itopen.it/bulk/FOSS4G-IT-2020/#/presentation-title">workshop slide deck</a> and his <a class="reference external" href="https://github.com/elpaso/qgis3-server-vagrant/tree/master/resources/web/plugins">server side plugin examples</a>, and <a class="reference external" href="https://github.com/elpaso/qgis-helloserver">more examples here</a>.</p>
 </div>
 <div class="section" id="qgis-server-atlas-print-plugin">
-<h2>QGIS Server Atlas Print Plugin<a class="headerlink" href="#qgis-server-atlas-print-plugin" title="Permalink to this headline">¶</a></h2>
+<h3>QGIS Server Atlas Print Plugin<a class="headerlink" href="#qgis-server-atlas-print-plugin" title="Permalink to this headline">¶</a></h3>
 <p>See the <a class="reference external" href="https://github.com/3liz/qgis-atlasprint/blob/master/atlasprint/README.md#api">project documentation</a> for supported request parameters for QGIS Atlas prints.</p>
 </div>
 <div class="section" id="qgis-server-scaling">
-<h2>QGIS Server Scaling<a class="headerlink" href="#qgis-server-scaling" title="Permalink to this headline">¶</a></h2>
+<h3>QGIS Server Scaling<a class="headerlink" href="#qgis-server-scaling" title="Permalink to this headline">¶</a></h3>
 <p>If your server has the needed resources, you can dramatically improve response times for concurrent
 QGIS server requests by scaling the QGIS server:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="o">--</span><span class="n">profile</span><span class="o">=</span><span class="n">qgis</span><span class="o">-</span><span class="n">server</span> <span class="n">up</span> <span class="o">-</span><span class="n">d</span> <span class="o">--</span><span class="n">scale</span> <span class="n">qgis</span><span class="o">-</span><span class="n">server</span><span class="o">=</span><span class="mi">10</span> <span class="o">--</span><span class="n">remove</span><span class="o">-</span><span class="n">orphans</span>
 
 </pre></div>
 </div>
-<p>To take advantage of this, the locations/upstreams/qgis-server.conf should have one
+<p>To take advantage of this, the <code class="docutils literal notranslate"><span class="pre">locations/upstreams/qgis-server.conf</span></code> should have one
 server reference per instance e.g.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">upstream</span> <span class="n">qgis</span><span class="o">-</span><span class="n">fcgi</span> <span class="p">{</span>
         <span class="c1"># When not using &#39;host&#39; network these must reflect the number</span>
@@ -241,18 +286,15 @@ server reference per instance e.g.</p>
     <span class="p">}</span>
 </pre></div>
 </div>
-<div class="admonition note">
-Scaling to 10 instances is the default if you launch the QGIS server instance via the Make command.
-</div>
-<p>Then restart Nginx too:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="o">--</span><span class="n">profile</span><span class="o">=</span><span class="n">production</span> <span class="n">restart</span> <span class="n">nginx</span>
-
+<p>Scaling to 10 instances is the default if you launch the QGIS server instance via the Make command <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">deploy-qgis-server</span></code>. Then restart Nginx too:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">restart</span><span class="o">-</span><span class="n">nginx</span>
 </pre></div>
 </div>
-<p>Note that if you do an Nginx up it may bring down your scaled QGIS containers so take care.</p>
+<p>Note that if you do <code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">nginx</span> <span class="pre">up</span></code> it may bring down your scaled QGIS containers, so take care.</p>
 <p>Finally check the logs of Nginx to make sure things are running right:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="o">--</span><span class="n">profile</span><span class="o">=</span><span class="n">production</span> <span class="n">logs</span> <span class="n">nginx</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">nginx</span><span class="o">-</span><span class="n">logs</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -267,7 +309,7 @@ Scaling to 10 instances is the default if you launch the QGIS server instance vi
 
     <div class="col-md-12">
         <span></span><span class="pull-right">&copy; Copyright 2021, Tim Sutton.
-        Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0 and the
+        Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2 and the
         <a href="https://pypi.org/project/sphinx-sizzle-theme/"
 
            title="0.0.9/821a5457 [2020-04-16T19:31:16]"
